@@ -1,0 +1,139 @@
+{
+	"info": {
+		"_postman_id": "02d7b829-4624-4bf8-a3d6-502ac919f559",
+		"name": "RBC-Assessment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Retrieve Holidays By Country",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8085/v1/holidays/USA",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"v1",
+						"holidays",
+						"USA"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve All Holidays",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8085/v1/holidays",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"v1",
+						"holidays"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Holidays",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"country\": \"USA\",\r\n        \"name\": \"Christmas\",\r\n        \"onDay\": \"2024-12-26\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/v1/holidays/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"v1",
+						"holidays",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add New Holidays",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"country\": \"USA\",\r\n        \"name\": \"Christmas\",\r\n        \"onDay\": \"2020-12-25\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/v1/holidays",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"v1",
+						"holidays"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Holidays (If no country exists)",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"country\":\"USA\",\r\n    \"name\":\"Christmas\",\r\n    \"onDay\":\"2024-12-25\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/v1/holidays/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"v1",
+						"holidays",
+						"10"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
