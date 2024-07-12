@@ -35,29 +35,29 @@ public class HolidaysControllerTest {
     public void testGetHolidays() throws Exception {
         Holidays holiday = new Holidays();
         holiday.setCountry("USA");
-        holiday.setName("NEW YEAR EVE");
+        holiday.setName("New Year Eve");
         holiday.setOnDay("2020-01-01");
 
         when(holidaysService.fetchHolidaysByCountry("USA")).thenReturn(Arrays.asList(holiday));
 
         mockMvc.perform(get("/v1/holidays/USA")).andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].country").value("USA"))
-                .andExpect(jsonPath("$[0].name").value("NEW YEAR EVE"));
+                .andExpect(jsonPath("$[0].name").value("New Year Eve"));
     }
 
     @Test
     public void testAddHoliday() throws Exception {
         Holidays holiday = new Holidays();
         holiday.setCountry("USA");
-        holiday.setName("INDEPENDENCY DAY");
-        holiday.setOnDay("2024-01-01");
+        holiday.setName("Christmas");
+        holiday.setOnDay("2024-12-25");
 
         when(holidaysService.addHoliday(any(Holidays.class))).thenReturn(holiday);
 
         mockMvc.perform(post("/v1/holidays").contentType(MediaType.APPLICATION_JSON)
-                .content("{\"country\":\"USA\", \"name\":\"INDEPENDENCY DAY\", \"date\":\"2024-01-01\"}"))
+                .content("{\"country\":\"USA\", \"name\":\"Christmas\", \"date\":\"2024-12-25\"}"))
                 .andExpect(status().isOk()).andExpect(jsonPath("$.country").value("USA"))
-                .andExpect(jsonPath("$.name").value("INDEPENDENCY DAY"));
+                .andExpect(jsonPath("$.name").value("Christmas"));
     }
 
     @Test
@@ -65,15 +65,15 @@ public class HolidaysControllerTest {
         Holidays holiday = new Holidays();
         holiday.setId(1L);
         holiday.setCountry("USA");
-        holiday.setName("NEW YEAR EVE");
+        holiday.setName("New Year Eve");
         holiday.setOnDay("2024-01-01");
 
         when(holidaysService.updateHoliday(eq(1L), any(Holidays.class))).thenReturn(holiday);
 
         mockMvc.perform(put("/v1/holidays/1").contentType(MediaType.APPLICATION_JSON)
-                .content("{\"country\":\"USA\", \"name\":\"NEW YEAR EVE\", \"date\":\"2024-01-01\"}"))
+                .content("{\"country\":\"USA\", \"name\":\"New Year Eve\", \"date\":\"2024-01-01\"}"))
                 .andExpect(status().isOk()).andExpect(jsonPath("$.country").value("USA"))
-                .andExpect(jsonPath("$.name").value("NEW YEAR EVE"));
+                .andExpect(jsonPath("$.name").value("New Year Eve"));
     }
 
 }

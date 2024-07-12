@@ -114,5 +114,5 @@ The API documentation is available through Swagger. You can access it at: http:/
 
 ### Running Tests
 
-To run the tests for the application, use the following Maven command:  `mvn test`
+To run the tests for the application, use the following Maven command: `mvn test`
 

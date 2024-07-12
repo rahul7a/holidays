@@ -22,7 +22,7 @@ public class RbcSampleProjectHolidaysApplication {
     InitializingBean insertRecords() {
         return () -> {
             holidaysRepository.save(new Holidays("USA", "New Year Eve", "2020-01-01"));
-            holidaysRepository.save(new Holidays("CANADA", "New Year eve", "2020-01-01"));
+            holidaysRepository.save(new Holidays("CANADA", "New Year Eve", "2020-01-01"));
         };
     }
 

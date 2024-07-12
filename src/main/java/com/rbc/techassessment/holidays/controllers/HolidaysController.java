@@ -46,7 +46,7 @@ public class HolidaysController {
     }
 
     @PutMapping(value = "/{id}")
-    @Operation(summary = "Update an existing Holiday", description = "Update the details of an existing holiday")
+    @Operation(summary = "Update an existing Holiday", description = "Update the details of an existing holiday, if no Holiday Add a new Holiday")
     public Holidays updateHolidays(@PathVariable Long id, @RequestBody Holidays holiday) {
         return holidaysService.updateHoliday(id, holiday);
     }
